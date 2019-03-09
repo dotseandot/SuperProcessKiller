@@ -14,7 +14,7 @@ namespace SuperProcessKiller
 #region Global Variables
         int total; //total processes killed
         string name; //name of process
-        private List<Processes> processes = new List<Processes>();
+        private List<ProcessDetail> processes = new List<ProcessDetail>();
         private Config config = new Config();
 #endregion
 
@@ -182,7 +182,7 @@ namespace SuperProcessKiller
         /// </summary>
         private void LoadList()
         {
-            processes = new List<Processes>();
+            processes = new List<ProcessDetail>();
 
             //1. Get processes
             foreach (var process in Process.GetProcesses())
@@ -192,7 +192,7 @@ namespace SuperProcessKiller
                 if (processes.Find(x => x.ProcessName == pName) == null)
                 {
                     //Add first instance of a process to the list
-                    processes.Add(new Processes { ProcessName = process.ProcessName, ProcessTotal = 1, MemoryTotal = (process.PagedMemorySize64 / 1000) });
+                    processes.Add(new ProcessDetail { ProcessName = process.ProcessName, ProcessTotal = 1, MemoryTotal = (process.PagedMemorySize64 / 1000) });
                 }
                 else
                 {
