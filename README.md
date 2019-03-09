@@ -5,6 +5,7 @@ This is a .NET 4.6.1 WinForms application. It uses System.Diagnostics.Process to
 
 This can also be used via the command line:
 >SPK.exe chrome
+
 >SPK.exe chrome s
 
 The first example will be option 'Kill' and the second will be 'Kill (Safe)'.
